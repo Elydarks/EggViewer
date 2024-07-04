@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "eggviewer",
+	"version": "1.1",
+	"name": "EggViewer",
+	"description": "Check your eggs without /eggstats",
+	"authors": [
+		"Elydarks"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/eggviewer/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.example.EggViewer"
+		],
+		"client": [
+			"com.example.EggViewerClient"
+		],
+		"fabric-datagen": [
+			"com.example.EggViewerDataGenerator"
+		]
+	},
+	"mixins": [
+		"eggviewer.mixins.json",
+		{
+			"config": "eggviewer.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
