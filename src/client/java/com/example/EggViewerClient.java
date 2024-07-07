@@ -45,7 +45,7 @@ public class EggViewerClient implements ClientModInitializer {
             NbtCompound nbt = stack.getNbt();
             if (nbt != null) {
                 NbtCompound polymer = nbt.getCompound("Polymer$itemTag");
-                int cyclesLeft = polymer.getInt("currentEggCycle");
+                int cyclesLeft = Math.max(polymer.getInt("currentEggCycle"), 0);
                 double stepsLeft = polymer.getDouble("stepsLeftInCycle");
 
                 int green = (int) (255 * (cyclesLeft / 30.0));
@@ -119,6 +119,8 @@ public class EggViewerClient implements ClientModInitializer {
                     lines.add(Text.literal("Hidden power: ").setStyle(Style.EMPTY.withColor(Formatting.DARK_GREEN))
                             .append(Text.literal(HPDamage + " ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)))
                             .append(Text.literal(Type.values()[HPtype].name()).setStyle(Style.EMPTY.withColor(Type.values()[HPtype].getColor()))));
+                    String ball = polymer.getString("CaughtBall").split(":")[1].replace('_', ' ');
+                    lines.add(Text.literal("Pokeball: ").setStyle(Style.EMPTY.withColor(TextColor.fromRgb(0x8B1A1A))).append(Text.literal(ball).setStyle(Style.EMPTY.withColor(Formatting.WHITE))));
 
                     lines.add(Text.literal("\n"));
 
