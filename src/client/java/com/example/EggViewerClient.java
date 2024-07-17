@@ -86,9 +86,12 @@ public class EggViewerClient implements ClientModInitializer {
                     if (gender.equals("FEMALE")) {
                         genderSymbol = "♀";
                         genderColor = Style.EMPTY.withColor(Formatting.LIGHT_PURPLE);
-                    } else {
+                    } else if (gender.equals("MALE")) {
                         genderSymbol = "♂";
                         genderColor = Style.EMPTY.withColor(Formatting.AQUA);
+                    } else {
+                        genderSymbol = "○";
+                        genderColor = Style.EMPTY.withColor(Formatting.GRAY);
                     }
 
                     String shinySymbol = "";
@@ -109,7 +112,7 @@ public class EggViewerClient implements ClientModInitializer {
 
                     lines.add(Text.literal("Ability: ").setStyle(Style.EMPTY.withColor(Formatting.GOLD))
                             .append(Text.literal(String.valueOf(ability)).setStyle(Style.EMPTY.withColor(Formatting.WHITE)))
-                            .append(Text.literal(" | ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)))
+                            .append(Text.literal(" | ").setStyle(Style.EMPTY.withColor(Formatting.DARK_GRAY)))
                             .append(Text.literal("HA: ").setStyle(Style.EMPTY.withColor(Formatting.GOLD)))
                             .append(Text.literal(HA).setStyle(Style.EMPTY.withColor(Formatting.WHITE))));
 

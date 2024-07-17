@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "eggviewer",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"name": "EggViewer",
 	"description": "Check your eggs without /eggstats",
 	"authors": [
